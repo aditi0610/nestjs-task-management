@@ -3,4 +3,10 @@
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class TasksService {}
+export class TasksService {
+    private tasks = [];  //only this class can access or modify it.
+
+    getAllTasks() {
+        return this.tasks;
+    }
+}
