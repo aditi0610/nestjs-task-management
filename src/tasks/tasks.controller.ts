@@ -5,7 +5,8 @@ import { TasksService } from './tasks.service';
 @Controller('tasks')
 export class TasksController 
 {
-    constructor(private tasksService: TasksService){ }
+    constructor(private tasksService: TasksService){ } // TasksService ko constructor ke through use karne ke liye inject kiya gaya hai
+
 
    
 }
