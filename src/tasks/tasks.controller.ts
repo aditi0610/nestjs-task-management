@@ -15,8 +15,9 @@ export class TasksController
         return this.tasksService.getAllTasks();
       }
 
-      //add POST endpoint to create a new task using TasksService
-      @Post()
+// Handles POST request to create a new task using data from CreateTaskDto
+// Automatically maps and validates the request body with class-validator decorators
+    @Post()
        createTask(@Body() CreateTaskDto: CreateTaskDto): Task {
            return this.tasksService.createTask(CreateTaskDto);
        }
