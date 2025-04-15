@@ -5,12 +5,13 @@ import { TaskStatus } from './task-status.enum';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { TasksRepository } from './tasks.repository';
 import { InjectRepository } from '@nestjs/typeorm';
+import { Task } from './entities/task.entity';
 
 @Injectable()
 export class TasksService {
     constructor(
         @InjectRepository(TasksRepository)
-        private taskRepository: TasksRepository,
+        private tasksRepository: TasksRepository,
     ) {}
     // private tasks: Task[] = [];  //only this class can access or modify it.
 
@@ -18,7 +19,16 @@ export class TasksService {
     // {
     //     return this.tasks;
     // }
+    
+    async getTaskById(id: string): Promise<Task>{
+        const found = await this.tasksRepository.findOne({ where: {id} });
 
+        if (!found) {
+            throw new NotFoundException(`Task with ID "${id}" not found`);
+        }
+
+        return found;
+    }
     // getTaskById(id: string): Task {
 
         // try to get task
