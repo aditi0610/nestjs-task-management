@@ -3,9 +3,15 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { TaskStatus } from './task-status.enum';
 import { CreateTaskDto } from './dto/create-task.dto';
+import { TasksRepository } from './tasks.repository';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class TasksService {
+    constructor(
+        @InjectRepository(TasksRepository)
+        private taskRepository: TasksRepository,
+    ) {}
     // private tasks: Task[] = [];  //only this class can access or modify it.
 
     // getAllTasks(): Task[] 
