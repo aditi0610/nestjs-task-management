@@ -7,48 +7,48 @@ import { CreateTaskDto } from './dto/create-task.dto';
 
 @Injectable()
 export class TasksService {
-    private tasks: Task[] = [];  //only this class can access or modify it.
+    // private tasks: Task[] = [];  //only this class can access or modify it.
 
-    getAllTasks(): Task[] 
-    {
-        return this.tasks;
-    }
+    // getAllTasks(): Task[] 
+    // {
+    //     return this.tasks;
+    // }
 
-    getTaskById(id: string): Task {
+    // getTaskById(id: string): Task {
 
         // try to get task
         // if not found, throw an error(404 not found)
         // otherwise, return the found task
 
-        const found =  this.tasks.find((task) => task.id === id);
+    //     const found =  this.tasks.find((task) => task.id === id);
         
-        if (! found) {
-        throw new NotFoundException(`Task with ID "${id}" not found`);
-        }
+    //     if (! found) {
+    //     throw new NotFoundException(`Task with ID "${id}" not found`);
+    //     }
 
-        return found;
-      }
+    //     return found;
+    //   }
     //implement createTask method to add new task with UUID and default status
     // Extract title and description from the DTO for easier access
-    createTask(CreateTaskDto: CreateTaskDto): Task 
-    {
-        const { title, description } = CreateTaskDto;
+    // createTask(CreateTaskDto: CreateTaskDto): Task 
+    // {
+    //     const { title, description } = CreateTaskDto;
 
-        const task: Task = 
-        {
-            id: uuid(),
-            title,
-            description,
-            status: TaskStatus.OPEN,
-        }
+    //     const task: Task = 
+    //     {
+    //         id: uuid(),
+    //         title,
+    //         description,
+    //         status: TaskStatus.OPEN,
+    //     }
 
-        this.tasks.push(task);
-        return task;
-    }
+    //     this.tasks.push(task);
+    //     return task;
+    // }
 
-    deleteTask(id: string): void {
-      const found = this.getTaskById(id);
-      
-      this.tasks = this.tasks.filter((task) => task.id !== id);
-    }
+    // deleteTask(id: string): void {
+    //   const found = this.getTaskById(id);
+
+    //   this.tasks = this.tasks.filter((task) => task.id !== id);
+    // }
 }
