@@ -18,7 +18,7 @@ export class TasksController
     
     //http://localhost:3000/tasks/hajdhjh1223bbjb44
     @Get('/:id')
-       getTaskById(@Param('id') id: string): Task[] {
+       getTaskById(@Param('id') id: string): Task {
          return this.tasksService.getTaskById(id);
        }
          
@@ -30,7 +30,7 @@ export class TasksController
        }
 
     @Delete('/:id')
-       deleteTask(@Param('id') id: string): void[] {
+       deleteTask(@Param('id') id: string): void {
            return this.tasksService.deleteTask(id);
        }
         
