@@ -3,6 +3,7 @@ import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { TasksService } from './tasks.service';
 import { TaskStatus } from './task-status.enum';
 import { CreateTaskDto } from './dto/create-task.dto';
+import { Task } from './entities/task.entity';
 
 @Controller('tasks')
 export class TasksController 
@@ -16,6 +17,10 @@ export class TasksController
     //     return this.tasksService.getAllTasks();
     //   }
     
+    @Get('/:id')
+      getTaskById(@Param('id') id: string): Promise<Task> {
+        return this.tasksService.getTaskById(id);
+        }
     //http://localhost:3000/tasks/hajdhjh1223bbjb44
     // @Get('/:id')
     //    getTaskById(@Param('id') id: string): Task {
