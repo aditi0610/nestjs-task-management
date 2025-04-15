@@ -1,7 +1,7 @@
 // controller decorator accepts a string, which is the path to be handled by the controller
 import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { TasksService } from './tasks.service';
-import { Task } from './task.model';
+import { TaskStatus } from './task-status.enum';
 import { CreateTaskDto } from './dto/create-task.dto';
 
 @Controller('tasks')

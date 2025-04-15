@@ -1,8 +1,7 @@
 //service will be called from a controller, usually to validate data, create an item in the database,
 //  and maybe even return a response that is complicated and needs to be calculated or mapped 
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { Task, TaskStatus } from './task.model';
-import { v4 as uuid } from 'uuid';
+import { TaskStatus } from './task-status.enum';
 import { CreateTaskDto } from './dto/create-task.dto';
 
 @Injectable()
