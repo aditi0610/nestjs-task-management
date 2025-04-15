@@ -15,8 +15,8 @@ export class TasksService {
     }
 
     getTaskById(id: string): Task {
-        return this.tasks.find( (task) => task.id === id );
-    }
+        return this.tasks.find((task) => task.id === id);
+      }
     //implement createTask method to add new task with UUID and default status
     // Extract title and description from the DTO for easier access
     createTask(CreateTaskDto: CreateTaskDto): Task 
