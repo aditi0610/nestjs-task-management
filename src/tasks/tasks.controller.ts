@@ -29,10 +29,10 @@ export class TasksController
          
        // Handles POST request to create a new task using data from CreateTaskDto
       // Automatically maps and validates the request body with class-validator decorators
-    // @Post()
-    //    createTask(@Body() CreateTaskDto: CreateTaskDto): Task {
-    //        return this.tasksService.createTask(CreateTaskDto);
-    //    }
+    @Post()
+       createTask(@Body() CreateTaskDto: CreateTaskDto): Promise<Task> {
+           return this.tasksService.createTask(CreateTaskDto);
+       }
 
     // @Delete('/:id')
     //    deleteTask(@Param('id') id: string): void {
