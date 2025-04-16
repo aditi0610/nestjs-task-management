@@ -45,6 +45,18 @@ export class TasksService {
     //   }
     //implement createTask method to add new task with UUID and default status
     // Extract title and description from the DTO for easier access
+    async createTask(CreateTaskDto: CreateTaskDto): Promise<Task> {
+        const { title, description } = CreateTaskDto;
+
+        const task = this.tasksRepository.create({
+          title,
+          description,  
+          status: TaskStatus.OPEN,
+        })
+     await this.tasksRepository.save(task);
+     return task;
+    }
+
     // createTask(CreateTaskDto: CreateTaskDto): Task 
     // {
     //     const { title, description } = CreateTaskDto;
